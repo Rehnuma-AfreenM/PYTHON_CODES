@@ -136,5 +136,3 @@ my_linked_list.reverse()
 
 print('\nLL after reverse():')
 my_linked_list.print_list()
-
-    
