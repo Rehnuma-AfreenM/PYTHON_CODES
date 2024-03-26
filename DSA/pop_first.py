@@ -41,11 +41,25 @@ class LinkedList:
         if self.length  == 0:
             self.head = None
             self.tail = None
-        return temp    
+        return temp   
+    
+    def pop_first(self):
+        if self.length == 0:
+         return None
+        temp = self.head
+        self.head = self.head.next
+        temp.next = None
+        self.length -=1
+        if self.length == 0:
+            self.tail = None
+        return temp.value   
         
+               
+
 my_lklist = LinkedList(1)
 my_lklist.append(2)
-
-print(my_lklist.pop())
-print(my_lklist.pop())
-print(my_lklist.pop())
+my_lklist.append(3)
+print(my_lklist.pop_first())
+print(my_lklist.pop_first())
+print(my_lklist.pop_first())
+print(my_lklist.pop_first())

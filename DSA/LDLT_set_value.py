@@ -27,25 +27,27 @@ class LinkedList:
         self.length += 1
         return True
     
-    def pop(self):
-        if self.length == 0:
+    def get(self, index):
+        if index < 0 or index >= self.length:
             return None
         temp = self.head
-        pre = self.head
-        while (temp.next):
-            pre = temp
+        for _ in range(index):
             temp = temp.next
-        self.tail = pre
-        self.tail.next = None
-        self.length -= 1
-        if self.length  == 0:
-            self.head = None
-            self.tail = None
-        return temp    
+        return temp
+    
         
-my_lklist = LinkedList(1)
-my_lklist.append(2)
+    def set_value(self, index, value):
+        temp = self.get(index)
+        if temp:
+            temp.value = value
+            return True
+        return False
 
-print(my_lklist.pop())
-print(my_lklist.pop())
-print(my_lklist.pop())
+
+mylist = LinkedList(0)
+mylist.append(1)  
+mylist.append(2)
+mylist.append(3)  
+
+print(mylist.set_value(1 , 5))     
+mylist.print_list()

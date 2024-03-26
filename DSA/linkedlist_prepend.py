@@ -42,10 +42,19 @@ class LinkedList:
             self.head = None
             self.tail = None
         return temp    
-        
-my_lklist = LinkedList(1)
-my_lklist.append(2)
+    
+    def prepend(self, value):
+        new_node = Node(value)
+        if self.length == 0:
+            self.head = new_node
+            self.tail = new_node
+        else:
+            new_node.next = self.head
+            self.head = new_node
+        self.length +=1
+        return True
 
-print(my_lklist.pop())
-print(my_lklist.pop())
-print(my_lklist.pop())
+mylist = LinkedList(1)
+mylist.append(2)
+mylist.prepend(3)
+mylist.print_list()
